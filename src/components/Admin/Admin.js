@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
-import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import logo from '../../images/logo@2x.png';
 import AddAdmin from './AddAdmin/AddAdmin';
 import AddService from './AddService/AddService';
@@ -25,31 +25,31 @@ const Admin = () => {
                 <ul className="menu-container">
                     <li className="nev-items">
                         <ShoppingCartOutlinedIcon />
-                        <NavLink activeStyle={{color: 'red'}} className="menuLinks" to={`${url}/book`}> Book</NavLink>
+                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/book`}> Book</NavLink>
                     </li>
                     <li className="nev-items">
                         <ListIcon />
-                        <NavLink activeStyle={{color: 'red'}} className="menuLinks" to={`${url}/bookingList`}> Booking List</NavLink>
+                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/bookingList`}> Booking List</NavLink>
                     </li>
                     <li className="nev-items">
                         <CommentOutlinedIcon />
-                        <NavLink activeStyle={{color: 'red'}} className="menuLinks" to={`${url}/review`}> Review</NavLink>
+                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/review`}> Review</NavLink>
                     </li>
                     <li className="nev-items">
                         <AddIcon />
-                        <NavLink activeStyle={{color: 'red'}} className="menuLinks" to={`${url}/addService`}> Add Service</NavLink>
+                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/addService`}> Add Service</NavLink>
                     </li>
                     <li className="nev-items">
                         <PersonAddOutlinedIcon />
-                        <NavLink activeStyle={{color: 'red'}} className="menuLinks" to={`${url}/addAdmin`}> Add Admin</NavLink>
+                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/addAdmin`}> Add Admin</NavLink>
                     </li>
                     <li className="nev-items">
                         <AppsOutlinedIcon />
-                        <NavLink activeStyle={{color: 'red'}} className="menuLinks" to={`${url}/manageService`}> Manage Service</NavLink>
+                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/manageService`}> Manage Service</NavLink>
                     </li>
                 </ul>
             </Grid>
-            <Grid item lg={9}>
+            <Grid item lg={9} md={9}>
                 <Switch>
                     <Route path={`${path}/book`}>
                         <Order />

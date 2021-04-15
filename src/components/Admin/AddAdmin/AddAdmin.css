@@ -1,0 +1,32 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.form-container {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.input {
+    width: 400px;
+    padding: 12px 10px;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    background-color: #f2f2f7;
+}
+
+.addAdminButton {
+    padding: 12px 20px;
+    border: 0;
+    outline: none;
+    background-color: black;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}

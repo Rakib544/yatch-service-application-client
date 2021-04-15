@@ -1,0 +1,23 @@
+.adminLogo {
+    height: 50px;
+    display: block;
+    margin: auto;
+}
+.menu-container {
+    list-style: none;
+    margin-left: 30px;
+}
+
+.menuLinks {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: block;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.nev-items {
+    display: flex;
+    align-items: center;
+}

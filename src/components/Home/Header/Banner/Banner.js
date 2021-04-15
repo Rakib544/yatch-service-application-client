@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core';
 import React from 'react';
 import Navbar from '../Navbar/Navbar'
 import './Banner.css';

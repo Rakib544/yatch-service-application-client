@@ -5,6 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import './Navbar.css';
+import logo from '../../../../images/logo@2x.png'
 
 const Navbar = () => {
     const [clicked, setClicked] = useState(false)
@@ -15,7 +16,7 @@ const Navbar = () => {
     return (
         <nav className="navbarItems">
             <h1 className="navbar-logo">
-                logo
+                <img src={logo} alt="logo"/>
             </h1>
             <div className="menu-icon" onClick={handleShowMenu}><IconButton>{clicked ? <CloseIcon /> : <MenuIcon />}</IconButton></div>
             <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>

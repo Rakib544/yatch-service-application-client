@@ -1,6 +1,6 @@
 .navbarItems {
     background-color: #fff;
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,7 +11,10 @@
     cursor: pointer;
     margin-left: 20px;
 }
-
+.navbar-logo img {
+    height: 50px;
+    margin-left: 20px;
+}
 .nav-menu {
     display: flex;
     justify-content: center;
@@ -27,10 +30,13 @@
     transition: 0.4s;
     border-radius: 30px;
     margin: 0 5px;
+    font-weight: 500;
+    color: #000;
 }
 
 .nav-links:hover {
-    background-color: red;
+    background-color:deepskyblue;
+    color: #fff;
 }
 
 .menu-icon {
@@ -54,7 +60,7 @@
         position: absolute;
         top: 60px;
         left: -120%;
-        background-color: red;
+        background-color:deepskyblue;
         transition: all 0.3s ease;
         margin-top: 30px;
     }

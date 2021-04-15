@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo@2x.png'
+import { googleSignIn, initializedLoginFramework } from './LoginManager';
 
 const useStyles = makeStyles(() => ({
     img: {
@@ -27,6 +28,11 @@ const useStyles = makeStyles(() => ({
 
 const Login = () => {
     const classes = useStyles()
+    initializedLoginFramework()
+
+    const handleGoogleSignIn = () => {        
+        googleSignIn()
+    }
     return (
         <div>
             <Link to="/">
@@ -34,7 +40,7 @@ const Login = () => {
             </Link>
             <div className={classes.loginContainer}>
                 <h2>Login With</h2>
-                <button className={classes.button}>Continue With Google</button>
+                <button className={classes.button} onClick={handleGoogleSignIn}>Continue With Google</button>
             </div>
         </div>
     );

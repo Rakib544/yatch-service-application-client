@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import { UserContext } from '../../App';
 import logo from '../../images/logo@2x.png'
 import { googleSignIn, initializedLoginFramework } from './LoginManager';
 
@@ -27,6 +28,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const Login = () => {
+    const [loggedUser, setLoggedUser] = useContext(UserContext)
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
@@ -37,6 +39,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {        
         googleSignIn()
         .then(result => {
+            setLoggedUser(result)
             history.replace(from);
         })
     }

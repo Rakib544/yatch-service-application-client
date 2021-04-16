@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Redirect, Route } from 'react-router';
 import jwt_decode from "jwt-decode";
+import { UserContext } from '../../App';
 
 const PrivateRoute = ({ children, ...rest }) => {
-
+    const [loggedUser] = useContext(UserContext)
     const isLoggedIn = () => {
         const token = sessionStorage.getItem('token');
         if (!token) {
@@ -17,7 +18,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         <Route
             {...rest}
             render={({ location }) =>
-                (isLoggedIn()) ? (
+                (loggedUser.email || isLoggedIn()) ? (
                     children
                 ) : (
                     <Redirect

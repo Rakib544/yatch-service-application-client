@@ -5,34 +5,7 @@ import SwiperCore, { Navigation, Scrollbar, A11y, Pagination, Autoplay } from 's
 import { Grid } from '@material-ui/core';
 SwiperCore.use([Navigation, Scrollbar, A11y, Pagination, Autoplay]);
 
-const reviewData = [
-    {
-        name: 'EDDILE WALECE',
-        country: 'USA',
-        img: '',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ex dolorem provident blanditiis iure facere voluptatibus incidunt debitis corporis officiis.'
-    },
-    {
-        name: 'EDDILE WALECE',
-        country: 'USA',
-        img: '',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ex dolorem provident blanditiis iure facere voluptatibus incidunt debitis corporis officiis.'
-    },
-    {
-        name: 'EDDILE WALECE',
-        country: 'USA',
-        img: '',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ex dolorem provident blanditiis iure facere voluptatibus incidunt debitis corporis officiis.'
-    },
-    {
-        name: 'EDDILE WALECE',
-        country: 'USA',
-        img: '',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ex dolorem provident blanditiis iure facere voluptatibus incidunt debitis corporis officiis.'
-    },
-]
-
-const SingleReviewCart = () => {
+const SingleReviewCart = ({reviewData}) => {
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Grid container item lg={6} justify='center'>
@@ -46,12 +19,13 @@ const SingleReviewCart = () => {
                     onSlideChange={() => console.log('slide change')}
                 >
                     {
-                        reviewData.map(review => (
+                        reviewData && reviewData.map(review => (
                             <SwiperSlide>
                                 <div style={{padding: '15px'}}>
-                                    <p>{review.description}</p>
+                                    <p>{review.review}</p>
+                                    <img src={review.img} alt={review.name} />
                                     <h3>{review.name}</h3>
-                                    <h6>{review.country}</h6>
+                                    <h6>{review.organizationsName}</h6>
                                 </div>
                             </SwiperSlide>
                         ))

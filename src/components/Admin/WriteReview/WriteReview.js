@@ -1,6 +1,7 @@
 import { Button, makeStyles, Paper, TextField } from '@material-ui/core';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { UserContext } from '../../../App';
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -27,10 +28,16 @@ const useStyles = makeStyles(theme => ({
 
 const WriteReview = () => {
     const classes = useStyles()
+    const [loggedUser] = useContext(UserContext);
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-
+        const reviewData = {...data, ...loggedUser}
+        fetch('http://localhost:8080/addReview', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(reviewData)
+        })
     }
     return (
         <div>
@@ -41,19 +48,19 @@ const WriteReview = () => {
                         className={classes.testField}
                         variant="outlined"
                         label="Your Name"
-                        name="Name"
+                        name="name"
                         inputRef={register}
                     />
                     <TextField
                         className={classes.testField}
                         variant="outlined"
                         label="Organizations Name/ Company Name"
-                        name="organizations-name"
+                        name="organizationsName"
                         inputRef={register}
                     />
                     <TextField
                         className={classes.testField}
-                        type="number"
+                        type="text"
                         variant="outlined"
                         label="Write Review"
                         name="review"

@@ -22,7 +22,7 @@ const Admin = () => {
     const [tokenInfo, setTokenInfo] = useState({})
 
     useEffect(() => {
-        fetch('http://localhost:8080/allAdmins')
+        fetch('http://localhost:8081/allAdmins')
             .then(res => res.json())
             .then(data => setAdminList(data))
     }, [])
@@ -82,7 +82,7 @@ const Admin = () => {
             </Grid>
             <Grid item lg={9} md={9}>
                 <Switch>
-                    <Route path={`${path}/book`}>
+                    <Route path={`${path}/book/:id`}>
                         <Order />
                     </Route>
                     <Route path={`${path}/bookingList`}>

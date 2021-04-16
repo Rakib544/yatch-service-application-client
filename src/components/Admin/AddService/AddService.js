@@ -55,7 +55,7 @@ const AddProduct = () => {
     const onSubmit = data => {
         if (imageURL !== null) {
             let productData = { imageURL, ...data }
-            fetch('http://localhost:8080/addService', {
+            fetch('http://localhost:8081/addService', {
                 method: "POST",
                 headers: { "Content-type": 'application/json' },
                 body: JSON.stringify(productData)

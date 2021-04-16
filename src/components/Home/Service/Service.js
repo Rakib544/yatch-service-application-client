@@ -7,7 +7,7 @@ import ServiceCart from './ServiceCart';
 const Service = () => {
     const [serviceData, setServiceData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8080/allServices')
+        fetch('http://localhost:8081/allServices')
         .then(res => res.json())
         .then(data => setServiceData(data))
     }, [])

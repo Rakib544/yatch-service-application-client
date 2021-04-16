@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const AddAdmin = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:8080/addAdmin', {
+        fetch('http://localhost:8081/addAdmin', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(data)

@@ -33,7 +33,7 @@ const WriteReview = () => {
 
     const onSubmit = data => {
         const reviewData = {...data, ...loggedUser}
-        fetch('http://localhost:8080/addReview', {
+        fetch('http://localhost:8081/addReview', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(reviewData)

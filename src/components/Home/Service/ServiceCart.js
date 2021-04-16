@@ -3,6 +3,7 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import KingBedOutlinedIcon from '@material-ui/icons/KingBedOutlined';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import { Button, Card, CardActionArea, CardContent, CardMedia, Grid, makeStyles, Typography } from '@material-ui/core';
+import { useHistory } from 'react-router';
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
@@ -18,9 +19,14 @@ const useStyles = makeStyles({
 const ServiceCart = ({ service }) => {
     const classes = useStyles();
 
-    const { serviceTitle, imageURL, location,serviceType, totalPerson, totalBed } = service;
+    const history = useHistory();
+    const handleAddToOrder = () => {
+        history.push(`/admin/book/${service._id}`)
+    }
+
+    const { serviceTitle, imageURL, location, serviceType, totalPerson, totalBed } = service;
     return (
-        <Grid item lg={4}>
+        <Grid item lg={4} onClick={handleAddToOrder}>
             <Card>
                 <CardActionArea>
                     <CardMedia
@@ -37,7 +43,7 @@ const ServiceCart = ({ service }) => {
                 </CardActionArea>
                 <hr />
                 <div className={classes.serviceContainer}>
-                    <Button startIcon={<PersonOutlineOutlinedIcon />}>{totalPerson}</Button> 
+                    <Button startIcon={<PersonOutlineOutlinedIcon />}>{totalPerson}</Button>
                     <Button startIcon={<KingBedOutlinedIcon />}> {totalBed}</Button>
                 </div>
             </Card>

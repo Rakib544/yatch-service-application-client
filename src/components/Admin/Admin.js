@@ -16,6 +16,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import CommentOutlinedIcon from '@material-ui/icons/CommentOutlined';
 import './Admin.css';
 import jwt_decode from "jwt-decode";
+import BookingList from './BookingList/BookingList';
 
 const Admin = () => {
     const [adminList, setAdminList] = useState([]);
@@ -47,6 +48,10 @@ const Admin = () => {
                     {
                         isAdmin.length ? (
                             <div>
+                                <li className="nev-items">
+                                    <AddIcon />
+                                    <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/orderList`}> Order List</NavLink>
+                                </li>
                                 <li className="nev-items">
                                     <AddIcon />
                                     <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/addService`}> Add Service</NavLink>
@@ -86,7 +91,7 @@ const Admin = () => {
                         <Order />
                     </Route>
                     <Route path={`${path}/bookingList`}>
-                        <OrderList />
+                        <BookingList />
                     </Route>
                     <Route path={`${path}/review`}>
                         <WriteReview />
@@ -99,6 +104,9 @@ const Admin = () => {
                     </Route>
                     <Route path={`${path}/manageService`}>
                         <ManageService />
+                    </Route>
+                    <Route path={`${path}/orderList`}>
+                        <OrderList />
                     </Route>
                 </Switch>
             </Grid>

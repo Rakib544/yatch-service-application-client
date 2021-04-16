@@ -25,6 +25,8 @@ const Order = () => {
     }, [id])
 
     const orderDetails = {
+        fullOrder: {...selectedOrder},
+        orderStatus: 'pending',
         orderName: selectedOrder.serviceTitle,
         userEmail: loggedUser.email || sessionStorageUserInfo.email,
         userName: loggedUser.name || sessionStorageUserInfo.name,

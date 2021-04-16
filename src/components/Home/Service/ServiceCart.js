@@ -18,27 +18,27 @@ const useStyles = makeStyles({
 const ServiceCart = ({ service }) => {
     const classes = useStyles();
 
-    const { name, img, location, person, bed } = service;
+    const { serviceTitle, imageURL, location,serviceType, totalPerson, totalBed } = service;
     return (
         <Grid item lg={4}>
             <Card>
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
-                        image={img}
+                        image={imageURL}
                         title="Contemplative Reptile"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {name}
+                            {serviceTitle}
                         </Typography>
                         <Button startIcon={<LocationOnOutlinedIcon color="secondary" />}>{location}</Button>
                     </CardContent>
                 </CardActionArea>
                 <hr />
                 <div className={classes.serviceContainer}>
-                    <Button startIcon={<PersonOutlineOutlinedIcon />}>{person}</Button>
-                    <Button startIcon={<KingBedOutlinedIcon />}>{bed}</Button>
+                    <Button startIcon={<PersonOutlineOutlinedIcon />}>{totalPerson}</Button> 
+                    <Button startIcon={<KingBedOutlinedIcon />}> {totalBed}</Button>
                 </div>
             </Card>
         </Grid>

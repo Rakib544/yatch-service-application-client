@@ -53,15 +53,14 @@ const AddProduct = () => {
             .catch(err => console.log(err))
     }
     const onSubmit = data => {
-        // if (imageURL !== null) {
-        //     let productData = { imageURL, ...data }
-        //     fetch('https://cryptic-chamber-51709.herokuapp.com/addProduct', {
-        //         method: "POST",
-        //         headers: { "Content-type": 'application/json' },
-        //         body: JSON.stringify(productData)
-        //     })
-        // }
-        console.log(data)
+        if (imageURL !== null) {
+            let productData = { imageURL, ...data }
+            fetch('http://localhost:8080/addService', {
+                method: "POST",
+                headers: { "Content-type": 'application/json' },
+                body: JSON.stringify(productData)
+            })
+        }
     };
     return (
         <Grid container item lg={10}>
@@ -90,7 +89,15 @@ const AddProduct = () => {
                         type="number"
                         variant="outlined"
                         label="Total Bed"
-                        name="total-bed"
+                        name="totalBed"
+                        inputRef={register}
+                    />
+                    <TextField
+                        className={classes.testField}
+                        type="text"
+                        variant="outlined"
+                        label="Location"
+                        name="location"
                         inputRef={register}
                     />
                     <TextField
@@ -98,7 +105,7 @@ const AddProduct = () => {
                         type="number"
                         variant="outlined"
                         label="Total person"
-                        name="total-person"
+                        name="totalPerson"
                         inputRef={register}
                     />
                     <TextField
@@ -106,7 +113,7 @@ const AddProduct = () => {
                         type="number"
                         variant="outlined"
                         label="Price"
-                        name="total-price"
+                        name="totalPrice"
                         inputRef={register}
                     />
                     <FormControl className={classes.testField}>

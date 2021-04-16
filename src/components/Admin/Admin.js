@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
-import { NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import logo from '../../images/logo@2x.png';
 import AddAdmin from './AddAdmin/AddAdmin';
 import AddService from './AddService/AddService';
@@ -21,7 +21,9 @@ const Admin = () => {
     return (
         <Grid container>
             <Grid item lg={3}>
-                <img src={logo} alt="logo" className="adminLogo" />
+                <Link to="/">
+                    <img src={logo} alt="logo" className="adminLogo" />
+                </Link>
                 <ul className="menu-container">
                     <li className="nev-items">
                         <ShoppingCartOutlinedIcon />

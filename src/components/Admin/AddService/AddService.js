@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import { Button, makeStyles, Paper, TextField } from '@material-ui/core';
-import { useForm } from "react-hook-form";
+import { Button, FormControl, Grid, InputLabel, makeStyles, MenuItem, Paper, Select, TextField } from '@material-ui/core';
+import { Controller, useForm } from "react-hook-form";
 import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
     paper: {
         padding: theme.spacing(3),
-        display: 'flex',
-        justifyContent: 'space-around',
-        "@media (max-width: 900px)" : {
+        "@media (max-width: 900px)": {
             display: 'block'
         }
     },
@@ -34,8 +32,16 @@ const useStyles = makeStyles(theme => ({
 
 const AddProduct = () => {
     const classes = useStyles()
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, control } = useForm();
     const [imageURL, setImageURL] = useState(null)
+
+    const [open, setOpen] = React.useState(false);
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
     const handleImageUpload = e => {
         const imageData = new FormData();
@@ -47,75 +53,113 @@ const AddProduct = () => {
             .catch(err => console.log(err))
     }
     const onSubmit = data => {
-        if (imageURL !== null) {
-            let productData = { imageURL, ...data }
-            fetch('https://cryptic-chamber-51709.herokuapp.com/addProduct', {
-                method: "POST",
-                headers: { "Content-type": 'application/json' },
-                body: JSON.stringify(productData)
-            })
-        }
+        // if (imageURL !== null) {
+        //     let productData = { imageURL, ...data }
+        //     fetch('https://cryptic-chamber-51709.herokuapp.com/addProduct', {
+        //         method: "POST",
+        //         headers: { "Content-type": 'application/json' },
+        //         body: JSON.stringify(productData)
+        //     })
+        // }
+        console.log(data)
     };
     return (
-        <>
+        <Grid container item lg={10}>
             <div>
                 <h2> Add Product</h2>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Paper className={classes.paper}>
-                    <div>
-                        <TextField
-                            className={classes.testField}
-                            variant="outlined"
-                            label="Enter Product Name"
-                            name="productName"
-                            inputRef={register}
-                        />
-                        <TextField
-                            className={classes.testField}
-                            variant="outlined"
-                            label="Enter Product Price"
-                            name="price"
-                            inputRef={register}
-                        />
-                    </div>
-                    <div>
-                        <TextField
-                            className={classes.testField}
-                            variant="outlined"
-                            label="Enter Product Weight"
-                            name="weight"
-                            inputRef={register}
-                        />
+                    <TextField
+                        className={classes.testField}
+                        variant="outlined"
+                        label="Enter service Title"
+                        name="serviceTitle"
+                        inputRef={register}
+                    />
+                    <TextField
+                        className={classes.testField}
+                        variant="outlined"
+                        label="Enter Description"
+                        name="description"
+                        inputRef={register}
+                    />
+                    <TextField
+                        className={classes.testField}
+                        type="number"
+                        variant="outlined"
+                        label="Total Bed"
+                        name="total-bed"
+                        inputRef={register}
+                    />
+                    <TextField
+                        className={classes.testField}
+                        type="number"
+                        variant="outlined"
+                        label="Total person"
+                        name="total-person"
+                        inputRef={register}
+                    />
+                    <TextField
+                        className={classes.testField}
+                        type="number"
+                        variant="outlined"
+                        label="Price"
+                        name="total-price"
+                        inputRef={register}
+                    />
+                    <FormControl className={classes.testField}>
+                            <InputLabel>Food Type</InputLabel>
+                            <Controller
+                                as={
+                                    <Select
+                                        labelId="demo-controlled-open-select-label"
+                                        id="demo-controlled-open-select"
+                                        open={open}
+                                        onClose={handleClose}
+                                        onOpen={handleOpen}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value="per-week">Per Week</MenuItem>
+                                        <MenuItem value="per-month">Month</MenuItem>
+                                        <MenuItem value="per-day">Day</MenuItem>
+                                    </Select>
+                                }
+                                name="service-type"
+                                control={control}
+                                defaultValue=""
+                            ></Controller>
+                        </FormControl>
 
-                        <input
-                            accept="image/*"
-                            className={classes.input}
-                            id="contained-button-file"
-                            multiple
-                            type="file"
-                            onChange={handleImageUpload}
-                        />
-                        <label htmlFor="contained-button-file">
-                            <Button
-                                startIcon={<CloudUploadIcon />}
-                                variant="outlined"
-                                component="span"
-                            >
-                                Upload photo
+                    <input
+                        accept="image/*"
+                        className={classes.input}
+                        id="contained-button-file"
+                        multiple
+                        type="file"
+                        onChange={handleImageUpload}
+                    />
+                    <label htmlFor="contained-button-file">
+                        <Button
+                            startIcon={<CloudUploadIcon />}
+                            variant="outlined"
+                            component="span"
+                        >
+                            Upload photo
                             </Button>
-                        </label>
-                    </div>
+                    </label>
                 </Paper>
                 {
-                   imageURL === null 
-                   ? <Button type="submit" disabled className={classes.button}>save</Button>
-                   :<Button type="submit" className={classes.button}>save</Button>
+                    imageURL === null
+                        ? <Button type="submit" disabled className={classes.button}>save</Button>
+                        : <Button type="submit" className={classes.button}>save</Button>
                 }
             </form>
 
-        </>
+        </Grid>
     );
 };
 

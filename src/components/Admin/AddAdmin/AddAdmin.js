@@ -4,7 +4,7 @@ import './AddAdmin.css';
 import { useForm } from "react-hook-form";
 
 const AddAdmin = () => {
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
 
     return (

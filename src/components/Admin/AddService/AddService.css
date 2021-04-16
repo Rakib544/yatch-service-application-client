@@ -1,0 +1,16 @@
+.service-form-container {
+    margin-top: 10px;
+}
+.form-group {
+    margin: 20px 0;
+}
+.form-control {
+    display: block;
+    margin: 5px 0;
+    width: 400px;
+    padding: 12px 10px;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    background-color: #f2f2f7;
+}

@@ -13,9 +13,16 @@ export const googleSignIn = () => {
 
     firebase.auth().signInWithPopup(googleProvider)
     .then(res => {
-        console.log(res)
+        setAuthToken()
     })
     .catch(err => {
         console.log(err)
+    })
+}
+
+const setAuthToken = () => {
+    firebase.auth().currentUser.getIdToken()
+    .then(idToken => {
+        sessionStorage.setItem('token', idToken);
     })
 }

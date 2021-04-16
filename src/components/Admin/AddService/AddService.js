@@ -117,7 +117,7 @@ const AddProduct = () => {
                         inputRef={register}
                     />
                     <FormControl className={classes.testField}>
-                            <InputLabel>Food Type</InputLabel>
+                            <InputLabel>Service Type</InputLabel>
                             <Controller
                                 as={
                                     <Select
@@ -131,8 +131,8 @@ const AddProduct = () => {
                                             <em>None</em>
                                         </MenuItem>
                                         <MenuItem value="per-week">Per Week</MenuItem>
-                                        <MenuItem value="per-month">Month</MenuItem>
-                                        <MenuItem value="per-day">Day</MenuItem>
+                                        <MenuItem value="per-month">Per Month</MenuItem>
+                                        <MenuItem value="per-day">Per Day</MenuItem>
                                     </Select>
                                 }
                                 name="service-type"

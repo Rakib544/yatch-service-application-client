@@ -14,11 +14,6 @@ export const googleSignIn = () => {
     return firebase.auth().signInWithPopup(googleProvider)
     .then(res => {
         setAuthToken()
-        const userInfo = {}
-        userInfo.img = res.user.photoURL;
-        userInfo.email = res.user.email;
-        userInfo.name = res.user.displayName;
-        return userInfo;
     })
     .catch(err => {
         console.log(err)

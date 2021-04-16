@@ -11,9 +11,14 @@ export const initializedLoginFramework = () => {
 export const googleSignIn = () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth().signInWithPopup(googleProvider)
+    return firebase.auth().signInWithPopup(googleProvider)
     .then(res => {
         setAuthToken()
+        const userInfo = {}
+        userInfo.img = res.user.photoURL;
+        userInfo.email = res.user.email;
+        userInfo.name = res.user.displayName;
+        return userInfo;
     })
     .catch(err => {
         console.log(err)

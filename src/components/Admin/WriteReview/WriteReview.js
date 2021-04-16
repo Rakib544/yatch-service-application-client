@@ -1,4 +1,4 @@
-import { Button, makeStyles, Paper, TextField } from '@material-ui/core';
+import { Button, Grid, makeStyles, Paper, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
@@ -40,8 +40,7 @@ const WriteReview = () => {
         })
     }
     return (
-        <div>
-            This is review page
+        <Grid container item lg={10} md={10} sm={12} xs={11} style={{margin: '50px auto', }}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Paper className={classes.paper}>
                     <TextField
@@ -70,7 +69,7 @@ const WriteReview = () => {
                 <Button type="submit" className={classes.button}>save</Button>
             </form>
 
-        </div>
+        </Grid>
     );
 };
 

@@ -63,9 +63,9 @@ const AddProduct = () => {
         }
     };
     return (
-        <Grid container item lg={10}>
+        <Grid container item lg={10} md={10} sm={11} xs={11} style={{margin: '50px auto'}}>
             <div>
-                <h2> Add Product</h2>
+                <h2> Add Service</h2>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>

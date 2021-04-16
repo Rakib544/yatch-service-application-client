@@ -1,4 +1,4 @@
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Paper, TextField } from '@material-ui/core';
 import React from 'react';
 import './AddAdmin.css';
 import { useForm } from "react-hook-form";
@@ -8,26 +8,26 @@ const AddAdmin = () => {
     const onSubmit = data => {
         fetch('http://localhost:8081/addAdmin', {
             method: 'POST',
-            headers: {'content-type': 'application/json'},
+            headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
         })
     }
 
     return (
-        <section>
+        <Grid container>
             <Grid container className="header">
                 <h2>Add Admin</h2>
                 <h5>Image</h5>
             </Grid>
-            <Paper>
-                <div className="form-container">
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <input className="input" type="text" placeholder="Enter Email" name="email" ref={register({ required: true })} />
+            <Grid item lg={8} md={8} sm={11} xs={11} style={{margin: '30px auto'}}>
+                <Paper className="p-5">
+                    <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+                        <TextField className="input" variant="outlined" label="Enter Email" name="email" inputRef={register} />
                         <button className="addAdminButton" type="submit">Submit</button>
                     </form>
-                </div>
-            </Paper>
-        </section>
+                </Paper>
+            </Grid>
+        </Grid>
     );
 };
 

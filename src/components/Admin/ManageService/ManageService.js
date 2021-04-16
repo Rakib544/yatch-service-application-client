@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 
 const ManageService = () => {
     const [orders, setOrders] = useState([]);
@@ -10,15 +12,15 @@ const ManageService = () => {
             .then(data => setOrders(data))
     }, [])
     return (
-        <div>
+        <Grid container item lg={11} md={11} sm={12} xs={12} style={{ margin: '30px 10px' }}>
             <TableContainer component={Paper}>
                 <Table style={{ minWidth: '450px' }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>
-                            <TableCell align="right">Email</TableCell>
-                            <TableCell align="right">Service Name</TableCell>
-                            <TableCell align="right">Pay With</TableCell>
+                            <TableCell align="center">Email</TableCell>
+                            <TableCell align="center">Service Name</TableCell>
+                            <TableCell align="center">Pay With</TableCell>
                             <TableCell align="right">Status</TableCell>
                         </TableRow>
                     </TableHead>
@@ -29,15 +31,22 @@ const ManageService = () => {
                                     {order.userName}
                                 </TableCell>
                                 <TableCell align="right">{order.userEmail}</TableCell>
-                                <TableCell align="right">{order.orderName}</TableCell>
-                                <TableCell align="right">{order.paymentWith} Card</TableCell>
-                                <TableCell align="right">Action</TableCell>
+                                <TableCell align="center">{order.orderName}</TableCell>
+                                <TableCell align="center">{order.paymentWith} Card</TableCell>
+                                <TableCell align="right">
+                                    <IconButton>
+                                        <DeleteIcon />
+                                    </IconButton>
+                                    <IconButton>
+                                        <EditIcon />
+                                    </IconButton>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
-        </div>
+        </Grid>
     );
 };
 

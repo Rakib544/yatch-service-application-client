@@ -4,24 +4,17 @@
     padding: 10px 20px;
 }
 
+.p-5 {
+    padding: 50px 10px;
+}
 .form-container {
-    height: 200px;
     display: flex;
-    align-items: center;
-    padding: 20px;
 }
-
 .input {
-    width: 400px;
-    padding: 12px 10px;
-    border: 0;
-    outline: none;
-    border-radius: 5px;
-    background-color: #f2f2f7;
+    width: 75%;
 }
-
 .addAdminButton {
-    padding: 12px 20px;
+    padding: 20px 30px;
     border: 0;
     outline: none;
     background-color: black;

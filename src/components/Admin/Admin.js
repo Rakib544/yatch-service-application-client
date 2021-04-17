@@ -23,7 +23,7 @@ const Admin = () => {
     const [tokenInfo, setTokenInfo] = useState({})
 
     useEffect(() => {
-        fetch('http://localhost:8081/allAdmins')
+        fetch('https://mysterious-earth-80571.herokuapp.com/allAdmins')
             .then(res => res.json())
             .then(data => setAdminList(data))
     }, [])

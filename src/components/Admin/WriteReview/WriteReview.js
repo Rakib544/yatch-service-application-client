@@ -47,7 +47,7 @@ const WriteReview = () => {
 
     const onSubmit = data => {
         const reviewData = {...data, imageURL}
-        fetch('http://localhost:8081/addReview', {
+        fetch('https://mysterious-earth-80571.herokuapp.com/addReview', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(reviewData)

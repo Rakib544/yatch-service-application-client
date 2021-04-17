@@ -55,7 +55,7 @@ const AddProduct = () => {
     const onSubmit = data => {
         if (imageURL !== null) {
             let productData = { imageURL, ...data }
-            fetch('http://localhost:8081/addService', {
+            fetch('https://mysterious-earth-80571.herokuapp.com/addService', {
                 method: "POST",
                 headers: { "Content-type": 'application/json' },
                 body: JSON.stringify(productData)

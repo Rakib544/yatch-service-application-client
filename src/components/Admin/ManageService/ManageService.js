@@ -6,13 +6,13 @@ const ManageService = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8081/allServices')
+        fetch('https://mysterious-earth-80571.herokuapp.com/allServices')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [services])
 
     const handleDelete = (id) => {
-        fetch('http://localhost:8081/delete', {
+        fetch('https://mysterious-earth-80571.herokuapp.com/delete', {
             method: 'DELETE',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ id })

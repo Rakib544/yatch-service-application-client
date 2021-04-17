@@ -24,7 +24,7 @@ export const PaymentCart = ({ orderDetails }) => {
       const paymentWith = paymentMethod.card.brand;
       const finalOrderInfo = {...orderDetails, paymentId, paymentWith}
 
-      fetch('http://localhost:8081/addOrder', {
+      fetch('https://mysterious-earth-80571.herokuapp.com/addOrder', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(finalOrderInfo)

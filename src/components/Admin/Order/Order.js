@@ -15,7 +15,7 @@ const Order = () => {
     const [selectedOrder, setSelectedOrder] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:8081/findSingleService/${id}`)
+        fetch(`https://mysterious-earth-80571.herokuapp.com/findSingleService/${id}`)
             .then(res => res.json())
             .then(data => setSelectedOrder(data))
 

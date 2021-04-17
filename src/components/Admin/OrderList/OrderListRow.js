@@ -7,7 +7,7 @@ const OrderListRow = ({ order }) => {
     const handleChange = status => {
         setStatusValue(status)
 
-        fetch('http://localhost:8081/update', {
+        fetch('https://mysterious-earth-80571.herokuapp.com/update', {
             method: 'PATCH',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify({id: order._id, statusValue: status})

@@ -37,7 +37,7 @@ const Blog = () => {
                 <p className="blog-subtitle">Find out our latest news, promotions and professional tips.</p>
                 <Grid container spacing={3}>
                     {
-                        blogData.map(blog => <BlogCard kry={blog.title} blog={blog} />)
+                        blogData && blogData.map(blog => <BlogCard kry={blog.title} blog={blog} />)
                     }
                 </Grid>
             </Container>

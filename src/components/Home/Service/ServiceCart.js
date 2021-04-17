@@ -4,6 +4,7 @@ import KingBedOutlinedIcon from '@material-ui/icons/KingBedOutlined';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import { Button, Card, CardActionArea, CardContent, CardMedia, Grid, makeStyles, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import './ServiceCart.css';
 const useStyles = makeStyles({
     root: {
@@ -27,38 +28,29 @@ const ServiceCart = ({ service }) => {
 
     const { serviceTitle, imageURL, location, serviceType, price, totalPerson, totalBed } = service;
     return (
-        <Grid item lg={4} onClick={handleAddToOrder} className="serviceContainer">
-            {/* <Card>
-                <CardActionArea>
-                    <CardMedia
-                        className={classes.media}
-                        image={imageURL}
-                        title="Contemplative Reptile"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            {serviceTitle}
-                        </Typography>
-                        <Button startIcon={<LocationOnOutlinedIcon color="secondary" />}>{location}</Button>
-                    </CardContent>
-                </CardActionArea>
-                <hr />
-                <div className={classes.serviceContainer}>
-                    <Button startIcon={<PersonOutlineOutlinedIcon />}>{totalPerson}</Button>
-                    <Button startIcon={<KingBedOutlinedIcon />}> {totalBed}</Button>
+        <Grid lg={4} md={4} sm={6} xs={12} onClick={handleAddToOrder} className="serviceContainer">
+            <div className="service">
+                <div className="img-container">
+                    <img src={imageURL} alt={serviceTitle} className="service-img" />
                 </div>
-            </Card> */}
-            <img src={service.imageURL} alt={serviceTitle} className="img-fluid" />
-            <div className="price-container">
-                <p>$ {price}</p>
-                <p>{serviceType}</p>
-            </div>
-            <h2>{serviceTitle}</h2>
-            <Button startIcon={<LocationOnOutlinedIcon color="secondary" />}>{location}</Button>
-            <hr />
-            <div>
-                <Button startIcon={<PersonOutlineOutlinedIcon />}>{totalPerson}</Button>
-                <Button startIcon={<KingBedOutlinedIcon />}> {totalBed}</Button>
+                <div className="service-body">
+                    <div className="price-container">
+                        <div className="left">
+                            <h2 className="service-title">{serviceTitle}</h2>
+                        </div>
+                        <div className="right">
+                            <p className="service-price">$ {price}</p>
+                            <div className="duration">
+                                <AccessTimeIcon className="service-icon" fontSize="small" /><span className="service-type">{serviceType}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <Button startIcon={<LocationOnOutlinedIcon className="service-icon" />}><small className="location">{location}</small></Button>
+                    </div>
+                    <Button startIcon={<PersonOutlineOutlinedIcon className="service-icon" />}>{totalPerson}</Button>
+                    <Button startIcon={<KingBedOutlinedIcon className="service-icon" />}> {totalBed}</Button>
+                </div>
             </div>
         </Grid>
     );

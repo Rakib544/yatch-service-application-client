@@ -1,7 +1,8 @@
 import { Button, Grid, makeStyles, Paper, TextField } from '@material-ui/core';
-import React, { useContext } from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { UserContext } from '../../../App';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -23,16 +24,29 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             backgroundColor: '#1B4F72'
         }
+    },
+    input : {
+        display: 'none'
     }
 }))
 
 const WriteReview = () => {
     const classes = useStyles()
-    const [loggedUser] = useContext(UserContext);
+    const [imageURL, setImageURL] = useState(null)
     const { register, handleSubmit } = useForm();
 
+    const handleImageUpload = e => {
+        const imageData = new FormData();
+        imageData.set('key', 'd17139582dad6f2a6f60bbc19e0dbd5e');
+        imageData.append('image', e.target.files[0]);
+
+        axios.post('https://api.imgbb.com/1/upload', imageData)
+            .then(res => setImageURL(res.data.data.display_url))
+            .catch(err => console.log(err))
+    }
+
     const onSubmit = data => {
-        const reviewData = {...data, ...loggedUser}
+        const reviewData = {...data, imageURL}
         fetch('http://localhost:8081/addReview', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
@@ -57,6 +71,23 @@ const WriteReview = () => {
                         name="organizationsName"
                         inputRef={register}
                     />
+                    <input
+                        accept="image/*"
+                        className={classes.input}
+                        id="contained-button-file"
+                        multiple
+                        type="file"
+                        onChange={handleImageUpload}
+                    />
+                    <label htmlFor="contained-button-file">
+                        <Button
+                            startIcon={<CloudUploadIcon />}
+                            variant="outlined"
+                            component="span"
+                        >
+                            Upload photo
+                            </Button>
+                    </label>
                     <TextField
                         className={classes.testField}
                         type="text"
@@ -66,7 +97,11 @@ const WriteReview = () => {
                         inputRef={register}
                     />
                 </Paper>
-                <Button type="submit" className={classes.button}>save</Button>
+                {
+                    imageURL === null
+                        ? <Button type="submit" disabled className={classes.button}>save</Button>
+                        : <Button type="submit" className={classes.button}>save</Button>
+                }
             </form>
 
         </Grid>

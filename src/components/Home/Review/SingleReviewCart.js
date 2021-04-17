@@ -24,7 +24,7 @@ const SingleReviewCart = ({reviewData}) => {
                             <SwiperSlide>
                                 <div className="text-container">
                                     <p className="review-text">{review.review}</p>
-                                    <img src={review.img} alt={review.name} className="reviewer-img" />
+                                    <img src={review.imageURL} alt={review.name} className="reviewer-img" />
                                     <h3 className="reviewer-name">{review.name}</h3>
                                     <p className="review-organization">{review.organizationsName}</p>
                                 </div>

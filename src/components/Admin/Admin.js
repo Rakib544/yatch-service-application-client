@@ -64,7 +64,21 @@ const Admin = () => {
                                     <AppsOutlinedIcon />
                                     <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/manageService`}> Manage Service</NavLink>
                                 </li>
+                                <li className="nev-items">
+                                    <ShoppingCartOutlinedIcon />
+                                    <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/book`}> Book</NavLink>
+                                </li>
+                                <li className="nev-items">
+                                    <ListIcon />
+                                    <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/bookingList`}> Booking List</NavLink>
+                                </li>
+                                <li className="nev-items">
+                                    <CommentOutlinedIcon />
+                                    <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/review`}> Review</NavLink>
+                                </li>
                             </div>
+
+
                         ) : (
                             <div>
                                 <li className="nev-items">
@@ -82,7 +96,6 @@ const Admin = () => {
                             </div>
                         )
                     }
-
                 </ul>
             </Grid>
             <Grid item lg={9} md={9}>

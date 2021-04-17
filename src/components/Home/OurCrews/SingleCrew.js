@@ -9,11 +9,11 @@ const SingleCrew = ({ crew }) => {
         <Grid item lg={4} md={4} sm={6} xs={12}>
             <div className="crew-card">
                 <img src={crew.img} alt={crew.name} className="crew-img" />
-                <h2 >{crew.name}</h2>
-                <h5 >{crew.role}</h5>
-                <IconButton><TwitterIcon className="icon" /></IconButton>
-                <IconButton><FacebookIcon className="icon" /></IconButton>
-                <IconButton><InstagramIcon className="icon" /></IconButton>
+                <h2 className="crew-name">{crew.name}</h2>
+                <h5 className="crew-role">{crew.role}</h5>
+                <IconButton><TwitterIcon className="crew-icon" /></IconButton>
+                <IconButton><FacebookIcon className="crew-icon" /></IconButton>
+                <IconButton><InstagramIcon className="crew-icon" /></IconButton>
             </div>
         </Grid>
     );

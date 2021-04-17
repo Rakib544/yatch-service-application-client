@@ -13,8 +13,23 @@
     transition: 0.5s;
     border-radius: 10px;
     cursor: pointer;
+    text-align: center;
 }
 
 .crew-card:hover {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.crew-name {
+    font-size: 18px;
+    font-weight: 600;  
+}
+
+.crew-role {
+    font-size: 14px;
+    color: #7E8885;
+}
+
+.crew-icon {
+    color: deepskyblue;
 }

@@ -3,11 +3,11 @@
 }
 .crew-img {
     width: 100%;
-    height: 250px;
+    height: 300px;
 }
 
 .crew-card {
-    background-color: #fff;
+    background-color: #F1F4F6;
     padding: 10px 15px;
     margin-right: 10px;
     transition: 0.5s;

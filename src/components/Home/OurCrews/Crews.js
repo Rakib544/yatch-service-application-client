@@ -26,11 +26,10 @@ const crewData = [
 ]
 
 const Crews = () => {
-    
     return (
         <section className="crew-section">
             <Container className="crew-container">
-                <h1>Meet Your Crew</h1>
+                <h1 className="title">Meet Your Crew</h1>
                 <Grid container spacing={2} justify="center">
                     {
                         crewData.map((crew, index) => <SingleCrew crew={crew} key={index} />)

@@ -1,34 +1,20 @@
-import { Grid, IconButton, makeStyles } from '@material-ui/core';
+import { Grid, IconButton } from '@material-ui/core';
 import React from 'react';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
-const useStyles = makeStyles({
-    grid: {
-        backgroundColor: "#fff",
-        margin: '30px 10px'
-    },
-    title: {
-        fontSize: '18px',
-        fontWeight: '500'
-    },
-    role: {
-        color: '#9baab4',
-        lineHeight: '10px'
-    }
-})
-
 const SingleCrew = ({ crew }) => {
-    const classes = useStyles()
     return (
-        <Grid item lg={3} className={classes.grid}>
-            <img src={crew.img} alt={crew.name} style={{ width: '100%', height: '300px' }} />
-            <h2 className={classes.title}>{crew.name}</h2>
-            <h5 className={classes.role}>{crew.role}</h5>
-            <IconButton><TwitterIcon className="iconStyle" /></IconButton>
-            <IconButton><FacebookIcon className="iconStyle" /></IconButton>
-            <IconButton><InstagramIcon className="iconStyle" /></IconButton>
+        <Grid item lg={4} md={4} sm={6} xs={12}>
+            <div className="crew-card">
+                <img src={crew.img} alt={crew.name} className="crew-img" />
+                <h2 >{crew.name}</h2>
+                <h5 >{crew.role}</h5>
+                <IconButton><TwitterIcon className="icon" /></IconButton>
+                <IconButton><FacebookIcon className="icon" /></IconButton>
+                <IconButton><InstagramIcon className="icon" /></IconButton>
+            </div>
         </Grid>
     );
 };

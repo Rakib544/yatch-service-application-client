@@ -1,9 +1,10 @@
-import { Container, Grid, makeStyles } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import React from 'react';
 import crew1 from '../../../images/crew1.jpg';
 import crew2 from '../../../images/crew2.jpg';
 import crew3 from '../../../images/crew3.jpg';
 import SingleCrew from './SingleCrew';
+import './Crew.css';
 
 const crewData = [
     {
@@ -23,26 +24,20 @@ const crewData = [
     }
 
 ]
-const useStyles = makeStyles({
-    container: {
-        margin: '50px 0',
-        textAlign: 'center',
-        padding: '10px 50px',
-        backgroundColor: '#EEF7FD'
-    }
-})
 
 const Crews = () => {
-    const classes = useStyles();
+    
     return (
-        <Container className={classes.container}>
-            <h1>Meet Your Crew</h1>
-            <Grid container spacing={2} justify="center">
-                {
-                    crewData.map((crew, index) => <SingleCrew crew={crew} key={index}/>)
-                }
-            </Grid>
-        </Container>
+        <section className="crew-section">
+            <Container className="crew-container">
+                <h1>Meet Your Crew</h1>
+                <Grid container spacing={2} justify="center">
+                    {
+                        crewData.map((crew, index) => <SingleCrew crew={crew} key={index} />)
+                    }
+                </Grid>
+            </Container>
+        </section>
     );
 };
 

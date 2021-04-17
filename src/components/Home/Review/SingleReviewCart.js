@@ -3,11 +3,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import SwiperCore, { Navigation, Scrollbar, A11y, Pagination, Autoplay } from 'swiper';
 import { Grid } from '@material-ui/core';
+import './Review.css';
 SwiperCore.use([Navigation, Scrollbar, A11y, Pagination, Autoplay]);
 
 const SingleReviewCart = ({reviewData}) => {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="review-container">
             <Grid container item lg={6} justify='center'>
                 <Swiper
                     spaceBetween={50}
@@ -21,11 +22,11 @@ const SingleReviewCart = ({reviewData}) => {
                     {
                         reviewData && reviewData.map(review => (
                             <SwiperSlide>
-                                <div style={{padding: '15px'}}>
-                                    <p>{review.review}</p>
-                                    <img src={review.img} alt={review.name} />
-                                    <h3>{review.name}</h3>
-                                    <h6>{review.organizationsName}</h6>
+                                <div className="text-container">
+                                    <p className="review-text">{review.review}</p>
+                                    <img src={review.img} alt={review.name} className="reviewer-img" />
+                                    <h3 className="reviewer-name">{review.name}</h3>
+                                    <p className="review-organization">{review.organizationsName}</p>
                                 </div>
                             </SwiperSlide>
                         ))

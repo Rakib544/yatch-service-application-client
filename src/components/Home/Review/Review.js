@@ -9,13 +9,13 @@ const Review = () => {
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
-    console.log(reviews)
+    
     return (
-        <div style={{ textAlign: 'center' }}>
-            <h4>Review</h4>
-            <h2>What BOATBOOKINGS SAYS</h2>
+        <section className="review-section">
+            <h4 className="title">Review</h4>
+            <p className="blog-subtitle">What Boat Booking Says</p>
             <SingleReviewCart reviewData={reviews} />
-        </div>
+        </section>
     );
 };
 

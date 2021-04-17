@@ -1,0 +1,35 @@
+.review-container {
+    display: flex;
+    justify-content: center;
+}
+
+.review-text {
+    color: #7E8885;
+}
+
+.text-container {
+    padding: 15px;
+}
+.review-organization {
+    font-size: 12px;
+    padding: 10px 0;
+    color: gray;
+}
+
+.reviewer-name {
+    font-size: 17px;
+    color: #7E8885;
+}
+
+.reviewer-img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-section {
+    background-color: #F1F4F6;
+    padding: 50px 20px;
+    text-align: center;
+}

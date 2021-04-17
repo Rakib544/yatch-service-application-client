@@ -1,5 +1,7 @@
+import { Grid } from '@material-ui/core';
 import React, { useContext, useEffect, useState } from 'react';
 import {UserContext} from '../../../App';
+import BookingCart from './BookingCart';
 
 const BookingList = () => {
     const [loggedUser] = useContext(UserContext);
@@ -12,9 +14,11 @@ const BookingList = () => {
     }, [loggedUser.email])
     console.log(bookingService)
     return (
-        <div>
-            
-        </div>
+        <Grid container style={{marginTop: '30px'}}>
+            {
+                bookingService.map(booking => <BookingCart key={booking._id} booking ={booking} />)
+            }
+        </Grid>
     );
 };
 

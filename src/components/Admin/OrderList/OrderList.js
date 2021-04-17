@@ -1,9 +1,10 @@
-import { FormControl, Grid, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import OrderListRow from './OrderListRow';
 
 const OrderList = () => {
     const [orders, setOrders] = useState([]);
-
+    
     useEffect(() => {
         fetch('http://localhost:8081/allOrderList')
             .then(res => res.json())
@@ -24,26 +25,7 @@ const OrderList = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {orders.map(order => (
-                            <TableRow key={order.orderName}>
-                                <TableCell component="th" scope="row">
-                                    {order.userName}
-                                </TableCell>
-                                <TableCell align="center">{order.userEmail}</TableCell>
-                                <TableCell align="center">{order.orderName}</TableCell>
-                                <TableCell align="center">{order.paymentWith} Card</TableCell>
-                                <TableCell align="right">
-                                    <FormControl variant="filled">
-                                        <Select
-                                        >
-                                            <MenuItem value={10}>Ten</MenuItem>
-                                            <MenuItem value={20}>Twenty</MenuItem>
-                                            <MenuItem value={30}>Thirty</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                        {orders.map((order, index) => <OrderListRow key={index} order={order} />)}
                     </TableBody>
                 </Table>
             </TableContainer>

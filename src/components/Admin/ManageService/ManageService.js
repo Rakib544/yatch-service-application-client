@@ -4,12 +4,12 @@ import EditIcon from '@material-ui/icons/Edit';
 import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 
 const ManageService = () => {
-    const [orders, setOrders] = useState([]);
+    const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8081/allOrderList')
+        fetch('http://localhost:8081/allServices')
             .then(res => res.json())
-            .then(data => setOrders(data))
+            .then(data => setServices(data))
     }, [])
     return (
         <Grid container item lg={11} md={11} sm={12} xs={12} style={{ margin: '30px 10px' }}>
@@ -17,23 +17,21 @@ const ManageService = () => {
                 <Table style={{ minWidth: '450px' }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell align="center">Email</TableCell>
-                            <TableCell align="center">Service Name</TableCell>
-                            <TableCell align="center">Pay With</TableCell>
-                            <TableCell align="right">Status</TableCell>
+                            <TableCell>Service Name</TableCell>
+                            <TableCell align="center">Location</TableCell>
+                            <TableCell align="center">Price</TableCell>
+                            <TableCell align="center">Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {orders.map(order => (
-                            <TableRow key={order.orderName}>
+                        {services.map(service => (
+                            <TableRow key={service.serviceTitle}>
                                 <TableCell component="th" scope="row">
-                                    {order.userName}
+                                    {service.serviceTitle}
                                 </TableCell>
-                                <TableCell align="right">{order.userEmail}</TableCell>
-                                <TableCell align="center">{order.orderName}</TableCell>
-                                <TableCell align="center">{order.paymentWith} Card</TableCell>
-                                <TableCell align="right">
+                                <TableCell align="center">{service.location}</TableCell>
+                                <TableCell align="center">$ {service.totalPrice}</TableCell>
+                                <TableCell align="center">
                                     <IconButton>
                                         <DeleteIcon />
                                     </IconButton>

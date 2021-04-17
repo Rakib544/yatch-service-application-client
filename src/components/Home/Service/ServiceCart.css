@@ -1,0 +1,25 @@
+.img-fluid {
+    width:100%;
+    height: 250px;
+}
+.serviceContainer {
+    padding: 10px 20px;
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.serviceContainer:hover img{
+    width: 120%;
+    
+}
+
+.price-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: black;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 50%;
+}

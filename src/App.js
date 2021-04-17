@@ -4,6 +4,7 @@ import Admin from './components/Admin/Admin';
 import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import './App.css'
 
 export const UserContext = createContext()
 

@@ -49,7 +49,7 @@ const Admin = () => {
                         isAdmin.length ? (
                             <div>
                                 <li className="nev-items">
-                                    <AddIcon />
+                                    <ListIcon />
                                     <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/orderList`}> Order List</NavLink>
                                 </li>
                                 <li className="nev-items">
@@ -66,7 +66,7 @@ const Admin = () => {
                                 </li>
                                 <li className="nev-items">
                                     <ShoppingCartOutlinedIcon />
-                                    <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/book`}> Book</NavLink>
+                                    <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to="/"> Book</NavLink>
                                 </li>
                                 <li className="nev-items">
                                     <ListIcon />
@@ -83,7 +83,7 @@ const Admin = () => {
                             <div>
                                 <li className="nev-items">
                                     <ShoppingCartOutlinedIcon />
-                                    <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/book`}> Book</NavLink>
+                                    <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to='/'> Book</NavLink>
                                 </li>
                                 <li className="nev-items">
                                     <ListIcon />

@@ -55,6 +55,7 @@ const WriteReview = () => {
     }
     return (
         <Grid container item lg={10} md={10} sm={12} xs={11} style={{margin: '50px auto', }}>
+            <h2 className="title">Write Review</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Paper className={classes.paper}>
                     <TextField
@@ -71,6 +72,7 @@ const WriteReview = () => {
                         name="organizationsName"
                         inputRef={register}
                     />
+                    <label style={{display: 'block', marginBottom: '10px'}}>Upload Your Image Here</label>
                     <input
                         accept="image/*"
                         className={classes.input}

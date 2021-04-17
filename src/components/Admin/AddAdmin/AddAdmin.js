@@ -15,10 +15,7 @@ const AddAdmin = () => {
 
     return (
         <Grid container>
-            <Grid container className="header">
-                <h2>Add Admin</h2>
-                <h5>Image</h5>
-            </Grid>
+            <h2 className="title">Add Admin</h2>
             <Grid item lg={8} md={8} sm={11} xs={11} style={{margin: '30px auto'}}>
                 <Paper className="p-5">
                     <form className="form-container" onSubmit={handleSubmit(onSubmit)}>

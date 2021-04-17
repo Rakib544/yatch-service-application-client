@@ -12,7 +12,7 @@ const BookingList = () => {
         .then(res => res.json())
         .then(data => setBookingService(data))
     }, [loggedUser.email])
-    console.log(bookingService)
+    
     return (
         <Grid container style={{marginTop: '30px'}}>
             {

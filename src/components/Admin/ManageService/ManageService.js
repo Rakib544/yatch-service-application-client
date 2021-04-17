@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import ManageServiceRow from './ManageServiceRow';
 
 const ManageService = () => {
     const [services, setServices] = useState([]);
@@ -10,7 +9,15 @@ const ManageService = () => {
         fetch('http://localhost:8081/allServices')
             .then(res => res.json())
             .then(data => setServices(data))
-    }, [])
+    }, [services])
+
+    const handleDelete = (id) => {
+        fetch('http://localhost:8081/delete', {
+            method: 'DELETE',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ id })
+        })
+    }
     return (
         <Grid container item lg={11} md={11} sm={12} xs={12} style={{ margin: '30px 10px' }}>
             <TableContainer component={Paper}>
@@ -24,23 +31,7 @@ const ManageService = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {services.map(service => (
-                            <TableRow key={service.serviceTitle}>
-                                <TableCell component="th" scope="row">
-                                    {service.serviceTitle}
-                                </TableCell>
-                                <TableCell align="center">{service.location}</TableCell>
-                                <TableCell align="center">$ {service.totalPrice}</TableCell>
-                                <TableCell align="center">
-                                    <IconButton>
-                                        <DeleteIcon />
-                                    </IconButton>
-                                    <IconButton>
-                                        <EditIcon />
-                                    </IconButton>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                        {services.map(service => <ManageServiceRow key={service._id} service={service} handleDelete={handleDelete} />)}
                     </TableBody>
                 </Table>
             </TableContainer>

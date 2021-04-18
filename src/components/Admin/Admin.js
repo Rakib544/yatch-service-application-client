@@ -1,23 +1,17 @@
-import { Grid, IconButton } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
-import logo from '../../images/logo@2x.png';
+import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import logo from '../../images/logo-camping-white.png';
 import AddAdmin from './AddAdmin/AddAdmin';
 import AddService from './AddService/AddService';
 import ManageService from './ManageService/ManageService';
 import Order from './Order/Order';
 import OrderList from './OrderList/OrderList';
 import WriteReview from './WriteReview/WriteReview';
-import ListIcon from '@material-ui/icons/List';
-import AddIcon from '@material-ui/icons/Add';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import AppsOutlinedIcon from '@material-ui/icons/AppsOutlined';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import CommentOutlinedIcon from '@material-ui/icons/CommentOutlined';
 import './Admin.css';
 import jwt_decode from "jwt-decode";
 import BookingList from './BookingList/BookingList';
-import MenuIcon from '@material-ui/icons/Menu';
+import AdminSideBar from './AdminSideBar/AdminSideBar';
 
 const Admin = () => {
     const [adminList, setAdminList] = useState([]);
@@ -41,52 +35,13 @@ const Admin = () => {
 
     return (
         <>
-            <Grid container>
-                <Grid item lg={2} className="admin-left-sight">
-                    <Link to="/">
-                        <img src={logo} alt="logo" className="adminLogo" />
-                    </Link>
-
+            <Grid container className="admin-container" justify="center">
+                <Grid item lg={2} md={2} xsm={12} xs={12} className="admin-left-sight">
                     <ul className="menu-container">
-                        {
-                            isAdmin.length ? (
-                                <div>
-                                    <li className="nev-items">
-                                        <ListIcon />
-                                        <NavLink className="menuLinks" to={`${url}/orderList`}> Order List</NavLink>
-                                    </li>
-                                    <li className="nev-items">
-                                        <AddIcon />
-                                        <NavLink className="menuLinks" to={`${url}/addService`}> Add Service</NavLink>
-                                    </li>
-                                    <li className="nev-items">
-                                        <PersonAddOutlinedIcon />
-                                        <NavLink className="menuLinks" to={`${url}/addAdmin`}> Add Admin</NavLink>
-                                    </li>
-                                    <li className="nev-items">
-                                        <AppsOutlinedIcon />
-                                        <NavLink className="menuLinks" to={`${url}/manageService`}> Manage Service</NavLink>
-                                    </li>
-                                </div>
-
-
-                            ) : (
-                                <div>
-                                    <li className="nev-items">
-                                        <ShoppingCartOutlinedIcon />
-                                        <NavLink className="menuLinks" to='/'> Book</NavLink>
-                                    </li>
-                                    <li className="nev-items">
-                                        <ListIcon />
-                                        <NavLink className="menuLinks" to={`${url}/bookingList`}> Booking List</NavLink>
-                                    </li>
-                                    <li className="nev-items">
-                                        <CommentOutlinedIcon />
-                                        <NavLink className="menuLinks" to={`${url}/review`}> Review</NavLink>
-                                    </li>
-                                </div>
-                            )
-                        }
+                        <Link to="/">
+                            <img src={logo} alt="admin-logo" className="adminLogo" />
+                        </Link>
+                        <AdminSideBar isAdmin={isAdmin} url={url} />
                     </ul>
                 </Grid>
                 <Grid item lg={10} md={10} sm={12} xs={12} className="admin-right-sight">

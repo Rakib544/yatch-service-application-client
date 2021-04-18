@@ -23,3 +23,20 @@
     margin-left: 10px;
     cursor: pointer;
 }
+
+.admin-img {
+    width: 80%;
+    height: 400px;
+    display: block;
+    margin: auto;
+}
+
+.add-admin-section {
+    display: flex;
+    align-items: center;
+}
+
+.admin-section-title {
+    color: #7E8889;
+    font-size: 17px;
+}

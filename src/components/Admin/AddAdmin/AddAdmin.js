@@ -1,7 +1,8 @@
-import { Grid, Paper, TextField } from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
 import React from 'react';
 import './AddAdmin.css';
 import { useForm } from "react-hook-form";
+import admin from '../../../images/admin.jpg';
 
 const AddAdmin = () => {
     const { register, handleSubmit } = useForm();
@@ -14,17 +15,23 @@ const AddAdmin = () => {
     }
 
     return (
-        <Grid container>
-            <h2 className="title">Add Admin</h2>
-            <Grid item lg={12} md={12} sm={12} xs={12} style={{padding: '10px'}}>
-                <Paper className="p-5">
+        <>
+            <Grid container justify="center" alignItems="center">
+
+                <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <img src={admin} alt="admin" className="admin-img" />
+                </Grid>
+
+                <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <h2 className="admin-section-title">Add Admin Here</h2>
                     <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-                        <TextField className="input" variant="outlined" label="Enter Email" name="email" inputRef={register} />
+                        <TextField className="input" variant="outlined" label="Enter Admin Email" name="email" inputRef={register} />
                         <button className="addAdminButton" type="submit">Submit</button>
                     </form>
-                </Paper>
+                </Grid>
+
             </Grid>
-        </Grid>
+        </>
     );
 };
 

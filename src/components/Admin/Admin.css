@@ -1,13 +1,13 @@
 .adminLogo {
-    height: 50px;
-    display: block;
-    margin: auto;
+    height: 25px;
 }
 .menu-container {
     list-style: none;
+    margin-top: 10px;
 }
 
 .menuLinks {
+    margin-top: 5px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
@@ -15,7 +15,9 @@
     padding: 10px 0;
     cursor: pointer;
 }
-
+.mt-5 {
+    margin-top: 20px;
+}
 .nev-items {
     display: flex;
     align-items: center;
@@ -27,3 +29,11 @@
     height: 120vh;
 }
 
+@media screen and (max-width: 900px) {
+    .admin-left-sight {
+        height: 40vh;
+    }
+    .adminLogo {
+        height: 50px;
+    }
+}

@@ -14,7 +14,7 @@ const BookingList = () => {
     }, [loggedUser.email])
     
     return (
-        <Grid container style={{marginTop: '30px'}}>
+        <Grid container>
             {
                 bookingService.map(booking => <BookingCart key={booking._id} booking ={booking} />)
             }

@@ -8,7 +8,8 @@ const useStyles = makeStyles(theme => ({
     paper: {
         padding: theme.spacing(3),
         "@media (max-width: 900px)": {
-            display: 'block'
+            display: 'block',
+            padding: theme.spacing(2)
         }
     },
     testField: {
@@ -25,8 +26,17 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: '#1B4F72'
         }
     },
-    input : {
+    input: {
         display: 'none'
+    },
+    grid: {
+        margin: '10px 10px 80px'
+    },
+    title: {
+        textAlign: 'center',
+        color: '#7E8885',
+        fontSize: '17px',
+        paddingLeft: '10px'
     }
 }))
 
@@ -46,66 +56,67 @@ const WriteReview = () => {
     }
 
     const onSubmit = data => {
-        const reviewData = {...data, imageURL}
+        const reviewData = { ...data, imageURL }
         fetch('https://mysterious-earth-80571.herokuapp.com/addReview', {
             method: 'POST',
-            headers: {'content-type': 'application/json'},
+            headers: { 'content-type': 'application/json' },
             body: JSON.stringify(reviewData)
         })
     }
     return (
-        <Grid container item lg={10} md={10} sm={12} xs={11} style={{margin: '50px auto', }}>
-            <h2 className="title">Write Review</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Paper className={classes.paper}>
-                    <TextField
-                        className={classes.testField}
-                        variant="outlined"
-                        label="Your Name"
-                        name="name"
-                        inputRef={register}
-                    />
-                    <TextField
-                        className={classes.testField}
-                        variant="outlined"
-                        label="Organizations Name/ Company Name"
-                        name="organizationsName"
-                        inputRef={register}
-                    />
-                    <label style={{display: 'block', marginBottom: '10px'}}>Upload Your Image Here</label>
-                    <input
-                        accept="image/*"
-                        className={classes.input}
-                        id="contained-button-file"
-                        multiple
-                        type="file"
-                        onChange={handleImageUpload}
-                    />
-                    <label htmlFor="contained-button-file">
-                        <Button
-                            startIcon={<CloudUploadIcon />}
+        <Grid container >
+            <h2 className={classes.title}>Write Your Review Here</h2>
+            <Grid item lg={10} md={10} sm={12} xs={12} className={classes.grid}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Paper className={classes.paper}>
+                        <TextField
+                            className={classes.testField}
                             variant="outlined"
-                            component="span"
-                        >
-                            Upload photo
+                            label="Your Name"
+                            name="name"
+                            inputRef={register}
+                        />
+                        <TextField
+                            className={classes.testField}
+                            variant="outlined"
+                            label="Organizations Name"
+                            name="organizationsName"
+                            inputRef={register}
+                        />
+                        <label style={{ display: 'block', marginBottom: '10px' }}>Upload Your Image Here</label>
+                        <input
+                            accept="image/*"
+                            className={classes.input}
+                            id="contained-button-file"
+                            multiple
+                            type="file"
+                            onChange={handleImageUpload}
+                        />
+                        <label htmlFor="contained-button-file">
+                            <Button
+                                startIcon={<CloudUploadIcon />}
+                                variant="outlined"
+                                component="span"
+                            >
+                                Upload photo
                             </Button>
-                    </label>
-                    <TextField
-                        className={classes.testField}
-                        type="text"
-                        variant="outlined"
-                        label="Write Review"
-                        name="review"
-                        inputRef={register}
-                    />
-                </Paper>
-                {
-                    imageURL === null
-                        ? <Button type="submit" disabled className={classes.button}>save</Button>
-                        : <Button type="submit" className={classes.button}>save</Button>
-                }
-            </form>
-
+                        </label>
+                        <TextField
+                            className={classes.testField}
+                            type="text"
+                            variant="outlined"
+                            label="Write Review"
+                            name="review"
+                            inputRef={register}
+                        />
+                    </Paper>
+                    {
+                        imageURL === null
+                            ? <Button type="submit" disabled className={classes.button}>save</Button>
+                            : <Button type="submit" className={classes.button}>save</Button>
+                    }
+                </form>
+            </Grid>
         </Grid>
     );
 };

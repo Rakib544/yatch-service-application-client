@@ -1,5 +1,5 @@
 .navbarItems {
-    background-color: #fff;
+    background-color: #091C3C;
     height: 70px;
     display: flex;
     justify-content: space-between;
@@ -12,7 +12,7 @@
     margin-left: 20px;
 }
 .navbar-logo img {
-    height: 50px;
+    height: 30px;
     margin-left: 20px;
 }
 .nav-menu {
@@ -30,18 +30,14 @@
     transition: 0.4s;
     border-radius: 30px;
     margin: 0 5px;
-    color: #000;
+    color: #fff;
     font-size: 15px;
     font-weight: bold;
 }
 
-.nav-links:hover {
-    background-color: black;
-    color: #fff;
-}
-
 .menu-icon {
     display: none;
+    color:  #091C3C;
 }
 
 @media screen and (max-width: 960px) {
@@ -51,6 +47,7 @@
 
     .menu-icon {
         display: block;
+        color: #fff;
     }
 
     .nav-menu {
@@ -67,8 +64,9 @@
         margin-top: 30px;
     }
     .nav-menu.active {
-        background-color:#1A1F2B;
+        background-color:#091C3C;
         left: 0;
+        width: 90.5vw;
     }
 
     .nav-links{

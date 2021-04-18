@@ -5,6 +5,9 @@ import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import './App.css'
+import AboutUs from './components/AboutUs/AboutUs';
+import ContactUs from './components/ContactUs/ContactUs';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 export const UserContext = createContext()
 
@@ -26,6 +29,15 @@ const App = () => {
           <PrivateRoute path="/admin">
             <Admin />
           </PrivateRoute>
+          <Route path="/about">
+            <AboutUs />
+          </Route>
+          <Route path="/contact">
+            <ContactUs />
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
+          </Route>
         </Switch>
       </BrowserRouter>
     </UserContext.Provider>

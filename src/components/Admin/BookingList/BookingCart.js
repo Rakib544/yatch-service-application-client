@@ -7,9 +7,17 @@ const BookingCart = ({ booking }) => {
     const { fullOrder, orderStatus } = booking;
     const { description, imageURL, location, serviceTitle, totalPrice } = fullOrder;
     return (
-        <Grid item lg={3} md={3} sm={5} xs={12} className="booking-grid">
+        <Grid item lg={4} md={4} sm={6} xs={12}>
             <div className="booking-container">
-                <button className="statusButton">{orderStatus}</button>
+                {
+                    orderStatus === 'done' && <button className="statusButton green">{orderStatus}</button>
+                }
+                {
+                    orderStatus === 'pending' && <button className="statusButton red">{orderStatus}</button>
+                }
+                {
+                    orderStatus === 'onGoing' && <button className="statusButton blue">{orderStatus}</button>
+                }
                 <img src={imageURL} alt={serviceTitle} className="booking-card-img" />
                 <h2 className="card-title">{serviceTitle}</h2>
                 <div>

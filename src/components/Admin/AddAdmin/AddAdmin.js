@@ -16,7 +16,7 @@ const AddAdmin = () => {
     return (
         <Grid container>
             <h2 className="title">Add Admin</h2>
-            <Grid item lg={8} md={8} sm={11} xs={11} style={{margin: '30px auto'}}>
+            <Grid item lg={12} md={12} sm={12} xs={12} style={{padding: '10px'}}>
                 <Paper className="p-5">
                     <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
                         <TextField className="input" variant="outlined" label="Enter Email" name="email" inputRef={register} />

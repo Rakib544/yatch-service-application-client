@@ -40,33 +40,32 @@ const Admin = () => {
     const isAdmin = adminList.filter(admin => admin.email === tokenInfo.email)
 
     return (
-        <Grid container>
-            <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '20px' }}>
-                <Link to="/">
-                    <img src={logo} alt="logo" className="adminLogo" />
-                </Link>
-                <IconButton><MenuIcon /></IconButton>
-            </div>
-            <Grid item lg={3}>
+        <>
+            <Grid container>
+                <Grid item lg={2} className="admin-left-sight">
+                    <Link to="/">
+                        <img src={logo} alt="logo" className="adminLogo" />
+                    </Link>
+
                     <ul className="menu-container">
                         {
                             isAdmin.length ? (
                                 <div>
                                     <li className="nev-items">
                                         <ListIcon />
-                                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/orderList`}> Order List</NavLink>
+                                        <NavLink className="menuLinks" to={`${url}/orderList`}> Order List</NavLink>
                                     </li>
                                     <li className="nev-items">
                                         <AddIcon />
-                                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/addService`}> Add Service</NavLink>
+                                        <NavLink className="menuLinks" to={`${url}/addService`}> Add Service</NavLink>
                                     </li>
                                     <li className="nev-items">
                                         <PersonAddOutlinedIcon />
-                                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/addAdmin`}> Add Admin</NavLink>
+                                        <NavLink className="menuLinks" to={`${url}/addAdmin`}> Add Admin</NavLink>
                                     </li>
                                     <li className="nev-items">
                                         <AppsOutlinedIcon />
-                                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/manageService`}> Manage Service</NavLink>
+                                        <NavLink className="menuLinks" to={`${url}/manageService`}> Manage Service</NavLink>
                                     </li>
                                 </div>
 
@@ -75,47 +74,55 @@ const Admin = () => {
                                 <div>
                                     <li className="nev-items">
                                         <ShoppingCartOutlinedIcon />
-                                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to='/'> Book</NavLink>
+                                        <NavLink className="menuLinks" to='/'> Book</NavLink>
                                     </li>
                                     <li className="nev-items">
                                         <ListIcon />
-                                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/bookingList`}> Booking List</NavLink>
+                                        <NavLink className="menuLinks" to={`${url}/bookingList`}> Booking List</NavLink>
                                     </li>
                                     <li className="nev-items">
                                         <CommentOutlinedIcon />
-                                        <NavLink activeStyle={{ color: 'red' }} className="menuLinks" to={`${url}/review`}> Review</NavLink>
+                                        <NavLink className="menuLinks" to={`${url}/review`}> Review</NavLink>
                                     </li>
                                 </div>
                             )
                         }
                     </ul>
+                </Grid>
+                <Grid item lg={10} md={10} sm={12} xs={12} className="admin-right-sight">
+                    <Switch>
+                        <Route exact path={`${path}`}>
+                            {
+                                isAdmin.length
+                                    ? <AddService />
+                                    : <BookingList />
+                            }
+                        </Route>
+                        <Route path={`${path}/book/:id`}>
+                            <Order />
+                        </Route>
+                        <Route path={`${path}/bookingList`}>
+                            <BookingList />
+                        </Route>
+                        <Route path={`${path}/review`}>
+                            <WriteReview />
+                        </Route>
+                        <Route path={`${path}/addService`}>
+                            <AddService />
+                        </Route>
+                        <Route path={`${path}/addAdmin`}>
+                            <AddAdmin />
+                        </Route>
+                        <Route path={`${path}/manageService`}>
+                            <ManageService />
+                        </Route>
+                        <Route path={`${path}/orderList`}>
+                            <OrderList />
+                        </Route>
+                    </Switch>
+                </Grid>
             </Grid>
-            <Grid item lg={9} md={9}>
-                <Switch>
-                    <Route path={`${path}/book/:id`}>
-                        <Order />
-                    </Route>
-                    <Route path={`${path}/bookingList`}>
-                        <BookingList />
-                    </Route>
-                    <Route path={`${path}/review`}>
-                        <WriteReview />
-                    </Route>
-                    <Route path={`${path}/addService`}>
-                        <AddService />
-                    </Route>
-                    <Route path={`${path}/addAdmin`}>
-                        <AddAdmin />
-                    </Route>
-                    <Route path={`${path}/manageService`}>
-                        <ManageService />
-                    </Route>
-                    <Route path={`${path}/orderList`}>
-                        <OrderList />
-                    </Route>
-                </Switch>
-            </Grid>
-        </Grid>
+        </>
     );
 };
 

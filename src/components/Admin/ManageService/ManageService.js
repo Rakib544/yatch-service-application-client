@@ -19,7 +19,7 @@ const ManageService = () => {
         })
     }
     return (
-        <Grid container item lg={11} md={11} sm={12} xs={12} style={{ margin: '30px 10px' }}>
+        <Grid container item lg={12} md={12} sm={12} xs={12} style={{ padding: '10px'}}>
             <TableContainer component={Paper}>
                 <Table style={{ minWidth: '450px' }} aria-label="simple table">
                     <TableHead>

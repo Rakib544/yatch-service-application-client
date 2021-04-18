@@ -66,7 +66,7 @@ const WriteReview = () => {
     return (
         <Grid container >
             <h2 className={classes.title}>Write Your Review Here</h2>
-            <Grid item lg={10} md={10} sm={12} xs={12} className={classes.grid}>
+            <Grid item lg={12} md={12} sm={12} xs={12} className={classes.grid}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Paper className={classes.paper}>
                         <TextField

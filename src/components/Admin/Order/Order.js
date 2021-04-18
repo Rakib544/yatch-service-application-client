@@ -34,12 +34,12 @@ const Order = () => {
     }
 
     return (
-            <Grid container item lg={6}>
+            <Grid container item lg={6} className="order-grid">
                 <img src={selectedOrder.imageURL} alt={selectedOrder.serviceTitle} style={{ width: '100%' }} />
                 <p className="service-title">{selectedOrder.serviceTitle}</p>
                 <h3 className="service-price">Price: $ {selectedOrder.totalPrice}</h3>
                 <TextField style={{margin: '10px 0'}} fullWidth value={loggedUser.name || sessionStorageUserInfo.name} label="User Name" variant="outlined" />
-                <TextField className="text-field" value={loggedUser.email || sessionStorageUserInfo.email} label="User Email" variant="outlined" />
+                <TextField fullWidth value={loggedUser.email || sessionStorageUserInfo.email} label="User Email" variant="outlined" />
                 <div className="payment-card">
                     <Elements stripe={stripePromise}>
                         <PaymentCart orderDetails={orderDetails} />

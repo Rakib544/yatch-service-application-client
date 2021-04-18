@@ -2,3 +2,19 @@
     width: 100%;
     margin: 20px 0;
 }
+
+.order-grid {
+    padding: 0 10px 50px;
+}
+
+.success {
+    color: green;
+    font-size: 14px;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}

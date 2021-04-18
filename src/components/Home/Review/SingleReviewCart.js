@@ -9,7 +9,7 @@ SwiperCore.use([Navigation, Scrollbar, A11y, Pagination, Autoplay]);
 const SingleReviewCart = ({reviewData}) => {
     return (
         <div className="review-container">
-            <Grid container item lg={6} justify='center'>
+            <Grid container item lg={6} md={8} xs={10} sm={12} justify='center'>
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={1}

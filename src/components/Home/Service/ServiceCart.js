@@ -2,7 +2,7 @@ import React from 'react';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import KingBedOutlinedIcon from '@material-ui/icons/KingBedOutlined';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
-import { Button,Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import { useHistory } from 'react-router';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import './ServiceCart.css';

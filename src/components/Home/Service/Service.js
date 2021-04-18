@@ -1,4 +1,3 @@
-
 import { Container, Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import ServiceCart from './ServiceCart';
@@ -7,8 +6,8 @@ const Service = () => {
     const [serviceData, setServiceData] = useState([]);
     useEffect(() => {
         fetch('https://mysterious-earth-80571.herokuapp.com/allServices')
-        .then(res => res.json())
-        .then(data => setServiceData(data))
+            .then(res => res.json())
+            .then(data => setServiceData(data))
     }, [])
     return (
         <section>
@@ -20,8 +19,8 @@ const Service = () => {
                         serviceData && serviceData.map(service => <ServiceCart key={service.name} service={service} />)
                     }
                 </Grid>
-            </Container>
-        </section>
+            </Container >
+        </section >
     );
 };
 

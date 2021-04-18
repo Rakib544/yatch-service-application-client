@@ -13,7 +13,8 @@ const ServiceCart = ({ service }) => {
         history.push(`/admin/book/${service._id}`)
     }
 
-    const { serviceTitle, imageURL, location, serviceType, price, totalPerson, totalBed } = service;
+    const { serviceTitle, imageURL, location, serviceType, totalPrice, totalPerson, totalBed } = service;
+
     return (
         <Grid lg={4} md={4} sm={6} xs={12} onClick={handleAddToOrder} className="serviceContainer">
             <div className="service">
@@ -26,7 +27,7 @@ const ServiceCart = ({ service }) => {
                             <h2 className="service-title">{serviceTitle}</h2>
                         </div>
                         <div className="right">
-                            <p className="service-price">$ {price}</p>
+                            <p className="service-price">$ {totalPrice}</p>
                             <div className="duration">
                                 <AccessTimeIcon className="service-icon" fontSize="small" /><span className="service-type">{serviceType}</span>
                             </div>

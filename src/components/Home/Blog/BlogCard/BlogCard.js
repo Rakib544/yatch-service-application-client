@@ -1,7 +1,8 @@
-import { Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import React from 'react';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import './BlogCard.css'
 
 const BlogCard = ({ blog }) => {
@@ -13,7 +14,10 @@ const BlogCard = ({ blog }) => {
                 <h5 className="blog-card-title">{title}</h5>
                 <p className="blog-time"><EventAvailableIcon className="mr-2" /> {date}</p>
                 <p className="blog-description">{description}</p>
-                <h5 className="blog-writer"><AccountCircleOutlinedIcon className="mr-2" />{name}</h5>
+                <div className="footer-container">
+                    <h5 className="blog-writer"><AccountCircleOutlinedIcon className="mr-2" />{name}</h5>
+                    <Button color="primary" endIcon={<ArrowRightAltIcon />} >See More</Button>
+                </div>
             </div>
         </Grid>
     );

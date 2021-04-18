@@ -1,5 +1,7 @@
 import React from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { Button } from '@material-ui/core';
+import './Order.css'
 
 export const PaymentCart = ({ orderDetails }) => {
   const stripe = useStripe();
@@ -36,9 +38,9 @@ export const PaymentCart = ({ orderDetails }) => {
   return (
     <form onSubmit={handleSubmit}>
       <CardElement />
-      <button type="submit" disabled={!stripe}>
+      <Button variant="contained" color="primary" style={{margin: '10px 0'}} type="submit" disabled={!stripe}>
         Pay
-      </button>
+      </Button>
     </form>
   );
 };

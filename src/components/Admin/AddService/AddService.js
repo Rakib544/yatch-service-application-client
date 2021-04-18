@@ -135,7 +135,7 @@ const AddProduct = () => {
                                         <MenuItem value="per-day">Per Day</MenuItem>
                                     </Select>
                                 }
-                                name="service-type"
+                                name="serviceType"
                                 control={control}
                                 defaultValue=""
                             ></Controller>

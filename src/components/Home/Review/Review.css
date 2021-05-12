@@ -33,3 +33,9 @@
     padding: 50px 20px;
     text-align: center;
 }
+
+.swiper-button-next, .swiper-button-prev {
+    color: deepskyblue;
+    font-size: 30px !important;
+
+}
